@@ -1,5 +1,8 @@
 package com.InfoGain.InfogainAssesement.root.Customer;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Customer {
 
     private int customerId;
@@ -9,7 +12,7 @@ public class Customer {
     public Customer(int customerId, String customerName, double purchaseAmount){
         this.customerId = customerId;
         this.customerName = customerName;
-        this.purchaseAmount = purchaseAmount;
+        this.purchaseAmount = roundDouble(purchaseAmount,2);
     }
 
     public int getCustomerId() {
@@ -33,9 +36,14 @@ public class Customer {
     }
 
     public void setCustomerPurchase(Double purchaseAmount) {
-        this.purchaseAmount = purchaseAmount;
+        this.purchaseAmount = roundDouble(purchaseAmount,2);
     }
 
+    private static double roundDouble(double dm ,int places){
+        BigDecimal bigDecimal = new BigDecimal(Double.toString(dm));
+        bigDecimal = bigDecimal.setScale(places, RoundingMode.HALF_UP);
+        return bigDecimal.doubleValue();
+    }
     @Override
     public String toString() {
         return "customerId=" + customerId +
