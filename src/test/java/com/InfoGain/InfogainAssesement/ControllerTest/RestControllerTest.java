@@ -21,6 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class RestControllerTest {
 
     private final String REST_CALL = "/v1/getCustomerList";
+    private final String LIST_CALL = "/v1/getCustomerPoints/1";
 
     private MockMvc mvc;
 
@@ -35,6 +36,11 @@ public class RestControllerTest {
     public void testCustomerList() throws Exception{
         // HttpHeaders headers; if necessary
         mvc.perform(MockMvcRequestBuilders.get(REST_CALL)).andExpect(status().isOk());
+    }
+
+    @Test
+    public void getCustomerRewards() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get(LIST_CALL)).andExpect(status().isOk());
     }
 
 }
