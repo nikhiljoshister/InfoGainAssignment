@@ -1,7 +1,7 @@
 # InfoGainAssignment
-InfoGainAssignment
+InfoGainAssignment.(Use the pom.xml to build the project using Maven)
 
-The project is created in Intellij IDE and has files to run a spring boot app. It has three end points
+The project is created in Intellij IDE and has files to run a spring boot app. Once the spring Boot app is up and running you would have three rest end points that are available to call as listed below.
 
 1) To get list of customers that bought items and made transactions in three months.
 
